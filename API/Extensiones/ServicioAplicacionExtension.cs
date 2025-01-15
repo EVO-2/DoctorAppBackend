@@ -3,6 +3,7 @@ using Data.Servicios;
 using Data;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using Data.Interfaces.IRepositorio;
 
 namespace API.Extensiones
 {
@@ -44,6 +45,8 @@ namespace API.Extensiones
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
             services.AddCors();
             services.AddScoped<ITokenServicio, TokenServicio>();
+
+            services.AddScoped<IUnidadTrabajo, IUnidadTrabajo>();
 
             return services;
         }
